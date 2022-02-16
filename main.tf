@@ -18,7 +18,7 @@ terraform {
 }
 
 variable "region" {
-  default     = "us-east-2"
+  default     = "us-east-1"
   description = "AWS region"
 }
 
@@ -80,7 +80,7 @@ module "vpc" {
 
   name                 = "${var.cluster_name}-vpc"
   cidr                 = "10.0.0.0/16"
-  azs                  = ["us-east-2a", "us-east-2b"]
+  azs                  = ["us-east-1a", "us-east-1b"]
   private_subnets      = ["10.0.1.0/24", "10.0.2.0/24"]
   public_subnets       = ["10.0.4.0/24"]
   enable_nat_gateway   = true
@@ -110,7 +110,7 @@ module "eks" {
   worker_groups = [
     {
       name                          = "worker-group-1"
-      instance_type                 = "t2.medium"
+      instance_type                 = "t2.small"
       additional_userdata           = "echo foo bar"
       asg_desired_capacity          = 1
       additional_security_group_ids = [aws_security_group.worker_group_mgmt_one.id]

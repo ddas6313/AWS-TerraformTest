@@ -6,8 +6,8 @@ on:
     - main
 
 env:
-  EKS_CLUSTER: JfrogTest
-  EKS_REGION: us-east-2
+  EKS_CLUSTER: DeploymentTest
+  EKS_REGION: us-east-1
 
 jobs:
   Job1:
